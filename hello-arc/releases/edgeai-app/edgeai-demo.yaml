@@ -19,6 +19,8 @@ spec:
       labels:
         app: edgeai
     spec:
+      nodeSelector:
+        "kubernetes.io/hostname": moc-lgm6mslt10x
       containers:
       - name: edgeai
         image: "rgleanndeepstream.azurecr.io/edgeai:007"
@@ -33,7 +35,7 @@ spec:
         - name: DISPLAY
           value: $DISPLAY
       imagePullSecrets:
-        - name: rgleanndeepstream
+        - name: acr-secret
 ---
 apiVersion: v1
 kind: Service
