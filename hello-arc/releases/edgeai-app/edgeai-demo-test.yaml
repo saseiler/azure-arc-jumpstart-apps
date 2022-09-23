@@ -5,7 +5,6 @@ metadata:
   name: edgeai
   namespace: edgeai-demo
 spec:
-  serviceAccountName
   replicas: 1
   selector:
     matchLabels:
@@ -38,12 +37,6 @@ spec:
           value: $DISPLAY
       imagePullSecrets:
         - name: acr-secret
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: edgeai-user
-  namespace: edgeai-demo
 ---
 apiVersion: v1
 kind: Service
