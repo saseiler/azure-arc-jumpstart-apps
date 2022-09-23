@@ -1,32 +1,4 @@
 ---
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-
-metadata:
-  name: aiedge-cluster-role
----
-apiVersion: v1
-kind: ServiceAccount
-
-metadata:
-  name: aiedge-service-account
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-
-metadata:
-  name: aiedge-cluster-role-binding
-
-roleRef:
-  kind: ClusterRole
-  name: aiedge-cluster-role
-  apiGroup: rbac.authorization.k8s.io
-
-subjects:
-  - kind: ServiceAccount
-    name: aiedge-service-account
-    namespace: default
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -48,12 +20,11 @@ spec:
       labels:
         app: edgeai
     spec:
-      serviceAccountName: aiedge-service-account
       nodeSelector:
         "kubernetes.io/hostname": moc-lgm6mslt10x
       containers:
       - name: edgeai
-        image: "rgleanndeepstream.azurecr.io/edgeai:001-model-rtsp"
+        image: "rgleanndeepstream.azurecr.io/edgeai:007"
         ports:
         - containerPort: 8554
         resources:
