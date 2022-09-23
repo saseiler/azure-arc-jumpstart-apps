@@ -4,17 +4,6 @@ kind: ClusterRole
 
 metadata:
   name: aiedge-cluster-role
-
-rules:
-  - apiGroups: [""]
-    resources: ["nodes", "services", "pods", "endpoints"]
-    verbs: ["get", "list", "watch"]
-  - apiGroups: [""]
-    resources: ["configmaps"]
-    verbs: ["get"]
-  - apiGroups: ["extensions"]
-    resources: ["deployments"]
-    verbs: ["get", "list", "watch"]
 ---
 apiVersion: v1
 kind: ServiceAccount
