@@ -24,7 +24,7 @@ spec:
         "kubernetes.io/hostname": moc-lgm6mslt10x
       containers:
       - name: edgeai
-        image: "rgleanndeepstream.azurecr.io/edgeai:001-model-rtsp"
+        image: "rgleanndeepstream.azurecr.io/edgeai:007"
         ports:
         - containerPort: 8554
         resources:
